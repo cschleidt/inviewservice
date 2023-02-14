@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "npx tsc && node dist/server.js",
-    "lint": "npx eslint . --ext .ts",
+    "lint": "npx eslint . --ext .ts"
   },
   "keywords": [],
   "author": "",
