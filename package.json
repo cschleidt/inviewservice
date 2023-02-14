@@ -4,8 +4,8 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "start": "tsc && node dist/server.js",
-    "lint": "npx eslint . --ext .ts"
+    "start": "npx tsc && node dist/server.js",
+    "lint": "npx eslint . --ext .ts",
   },
   "keywords": [],
   "author": "",
