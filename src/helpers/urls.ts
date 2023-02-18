@@ -1,9 +1,9 @@
 export const iexApiStockQuotes = (stock_list: string) => {
-    return `https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=${process.env.STOCK_KEY}&symbols=${stock_list}`
+    return `https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=${process.env.IEX_KEY}&symbols=${stock_list}`
 }
 
 export const iexApiStockList = (stock_list: string) => {
-    return `https://cloud.iexapis.com/stable/stock/market/list/${stock_list}/?token=${process.env.STOCK_KEY}&listLimit=20`
+    return `https://cloud.iexapis.com/stable/stock/market/list/${stock_list}/?token=${process.env.IEX_KEY}&listLimit=20`
 }
 
 export const cryptoUrl = (crypto_list: string) => {

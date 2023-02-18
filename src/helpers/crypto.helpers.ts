@@ -36,7 +36,7 @@ export const createUserCrypto = async ( req: AddCryptoProps, totalCryptoValue: n
 
     const {sub, symbol, buyCost, date, quantity } : AddCryptoProps = req
 
-    let userCrypto = await Prisma.userCrypto.findFirst({
+    const userCrypto = await Prisma.userCrypto.findFirst({
       where: { sub: req.sub, symbol: req.symbol }
     })
 
@@ -59,7 +59,7 @@ export const createUserCrypto = async ( req: AddCryptoProps, totalCryptoValue: n
 
 export const updateUserCrypto = async (sub: string, symbol: string, newEntry: number, quantity: number) => {
     
-    let userCrypto = await Prisma.userCrypto.findFirst({
+    const userCrypto = await Prisma.userCrypto.findFirst({
       where: { sub, symbol }
     })
 

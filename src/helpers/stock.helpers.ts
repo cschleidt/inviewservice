@@ -36,7 +36,7 @@ export const createUserStock = async ( req : AddStockProps, totalValueOfShares: 
   //Need to find out if there is another userStock of the same sub and symbol
   const {sub, symbol, buyCost, date, quantity } : AddStockProps = req
 
-  let userStock = await Prisma.userStock.findFirst({
+  const userStock = await Prisma.userStock.findFirst({
     where: { sub, symbol }
   })
 
@@ -59,7 +59,7 @@ export const createUserStock = async ( req : AddStockProps, totalValueOfShares: 
 }
 
 export const updateUserStock = async (sub: string, symbol: string, newEntry: number, quantity: number) => {
-  let userStock = await Prisma.userStock.findFirst({
+  const userStock = await Prisma.userStock.findFirst({
     where: { sub, symbol }
   })
 

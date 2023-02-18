@@ -45,7 +45,7 @@ export const createCryptoSummary = async ( req: AddCryptoProps ) => {
 
     const { sub, symbol, quantity } = req
 
-    let cryptoSummary = await Prisma.cryptoSummary.findUnique({
+    const cryptoSummary = await Prisma.cryptoSummary.findUnique({
         where: { sub }
     })
 

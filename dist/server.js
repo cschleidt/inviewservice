@@ -11,7 +11,7 @@ App.use(cors())
     .use(json())
     .use(router);
 // Handling non matching request from the client
-App.use((req, res, next) => {
+App.use((req, res) => {
     res.status(404).send("<h1>Page not found on the server</h1>");
 });
 App.listen(PORT, () => {

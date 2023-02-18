@@ -6,7 +6,7 @@ import { investmentValues, updateUserTotalInvestment } from './user.models'
 import { currencyRounder, percentageCalculator } from '../helpers/priceHelpers'
 import { AddStockProps, UpdateStockProps } from './interfaces/stock.models.interface'
 
-export const stockListModel = (data: any[]) => {
+export const stockListModel = (data) => {
 
   return data.map((stock) => {
 
@@ -74,7 +74,7 @@ export const addStock = async (req: Request) => {
 
 export const createStockSummary = async (sub: string) => {
 
-  let stockSummary = await Prisma.stockSummary.findUnique({
+  const stockSummary = await Prisma.stockSummary.findUnique({
     where: { sub }
   })
 
@@ -191,7 +191,7 @@ export const updateStock = async (req: Request) => {
   }
   // User has bought more stock to add on, get existing quantity and price and update.
 
-  let updatedNoOfShares: number = 0
+  let updatedNoOfShares = 0
 
   if (boughtOrSold) updatedNoOfShares = existingStockNoOfShares + quantity
   if (!boughtOrSold) updatedNoOfShares = existingStockNoOfShares - quantity

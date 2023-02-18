@@ -56,7 +56,7 @@ export const createUserCommodity = async (req, totalValue: number) => {
 
     const { sub, name, buyCost, date, quantity } = req
 
-    let userCommodity = await Prisma.userCommodity.findFirst({
+    const userCommodity = await Prisma.userCommodity.findFirst({
         where: { sub: sub, name: name }
     })
 
@@ -84,7 +84,7 @@ export const createUserCommodity = async (req, totalValue: number) => {
 
 export const updateUserCommodity = async (sub: string, name: string, newEntry: number, quantity: number) => {
 
-    let userCommodities = await Prisma.userCommodity.findFirst({
+    const userCommodities = await Prisma.userCommodity.findFirst({
         where: { sub, name }
     })
 

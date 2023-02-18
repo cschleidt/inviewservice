@@ -85,7 +85,7 @@ export const createCommoditiesSummary = async (req) => {
 
     const { sub, name, buyCost, quantity } = req
 
-    let commoditiesSummary = await Prisma.commoditiesSummary.findUnique({
+    const commoditiesSummary = await Prisma.commoditiesSummary.findUnique({
         where: { sub }
     })
 
@@ -177,7 +177,7 @@ export const updateCommodity = async (req: Request) => {
 
   // User has bought more commodity to add on
 
-  let updatedQuantity: number = 0
+  let updatedQuantity = 0
 
   if (boughtOrSold) updatedQuantity = existingQuantity as number + quantity
   if (!boughtOrSold) updatedQuantity = existingQuantity as number - quantity
