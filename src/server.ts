@@ -9,7 +9,7 @@ dotenv.config()
 const App = Express()
 const PORT = process.env.PORT || 8000
 
-App.use(cors())
+App.use(cors({origin: 'https://localhost:3000'}))
     .use(morgan('short'))
     .use(json())
     .use(router)
