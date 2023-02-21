@@ -16,8 +16,9 @@ App.use(morgan('short'))
 
 // Handling non matching request from the client
 App.use((req, res) => {
-    res.status(404).send(
-        "<h1>Page not found on the server</h1>")
+    res.status(404).send("<h1>Page not found on the server</h1>");
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 })
 
 App.listen(PORT, () => {
