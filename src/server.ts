@@ -9,10 +9,10 @@ dotenv.config()
 const App = Express()
 const PORT = process.env.PORT || 8000
 
-App.use(cors({origin: 'http://localhost:3000'}))
-    .use(morgan('short'))
+App.use(morgan('short'))
     .use(json())
     .use(router)
+    .use(cors())
 
 // Handling non matching request from the client
 App.use((req, res) => {
