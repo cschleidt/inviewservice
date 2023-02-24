@@ -6,7 +6,8 @@ import { iexApiStockQuotes } from './urls'
 export const getRequest = (url: string) => {
     return axios.request({
         method: "GET",
-        url: url
+        url: url,
+        timeout: 5000
     })
 }
 
@@ -14,7 +15,8 @@ export const getRequestWithHeaders = (url: string, headers: { [x: string]: strin
     return axios.request({
         method: "GET",
         url: url,
-        headers: headers
+        headers: headers,
+        timeout: 5000
     })
 }
 
