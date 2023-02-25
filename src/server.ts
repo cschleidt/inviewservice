@@ -1,7 +1,16 @@
+// Configure Azure app insights
 import appInsights from 'applicationinsights'
-appInsights.setup("InstrumentationKey=844a6dc6-25b1-4e2a-b2ff-52fb82f19e2b;IngestionEndpoint=https://northeurope-2.in.applicationinsights.azure.com/;LiveEndpoint=https://northeurope.livediagnostics.monitor.azure.com/").start();
-
-
+appInsights.setup("InstrumentationKey=844a6dc6-25b1-4e2a-b2ff-52fb82f19e2b;IngestionEndpoint=https://northeurope-2.in.applicationinsights.azure.com/;LiveEndpoint=https://northeurope.livediagnostics.monitor.azure.com/")
+    .setAutoDependencyCorrelation(true)
+    .setAutoCollectRequests(true)
+    .setAutoCollectPerformance(true, true)
+    .setAutoCollectExceptions(true)
+    .setAutoCollectDependencies(true)
+    .setAutoCollectConsole(true)
+    .setUseDiskRetryCaching(true)
+    .setSendLiveMetrics(false)
+    .setDistributedTracingMode(appInsights.DistributedTracingModes.AI)
+    .start();
 
 import dotenv from "dotenv"
 import Express, { json } from 'express'
