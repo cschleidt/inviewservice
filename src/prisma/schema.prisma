@@ -18,6 +18,21 @@ model User {
   stocks               StockSummary?
   cryptos              CryptoSummary?
   commodities          CommoditiesSummary?
+  investmentagreement  InvestmentAccountAgreement?
+}
+
+model InvestmentAccountAgreement {
+  id       Int      @id @default(autoincrement())
+  sub      String   @unique
+  user     User     @relation(fields: [sub], references: [sub])
+  investmentaccount InvestmentAccount?
+}
+
+model InvestmentAccount {
+  id       Int      @id @default(autoincrement())
+  sub      String   @unique
+  investmentagreementid Int @unique
+  agreement InvestmentAccountAgreement  @relation(fields: [investmentagreementid], references: [id])
 }
 
 model UserInvestmentValues {
